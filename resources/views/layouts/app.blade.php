@@ -13,11 +13,12 @@
 
     <!-- Tambahkan Flowbite JS -->
     <script src="{{ asset('js/index.js') }}" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body class="bg-gray-100">
-    @include('components.navbar')
+    @include('layouts.navbar')
     <div class="flex pt-16 overflow-hidden bg-gray-50 dark:bg-gray-900">
-        @include('components.sidebar')
+        @include('layouts.sidebar')
 
         <!-- Konten Utama -->
         <div id="main-content" class="relative w-full h-full overflow-y-auto bg-gray-50 lg:ml-64 dark:bg-gray-900">
@@ -29,6 +30,6 @@
 
 
     <!-- Tambahkan JS -->
-    <script src="{{ asset('assets/js/script.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
 </body>
 </html>
