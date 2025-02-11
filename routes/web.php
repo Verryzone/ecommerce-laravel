@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/register', function () {
@@ -26,6 +27,9 @@ Route::middleware('level:admin')->group(function () {
     Route::get('/dashboard', function () {
         return view('pages.home');
     });
+
+    Route::get('/products', [ProductsController::class, 'list']);
+
    
 });
 

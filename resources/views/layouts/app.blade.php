@@ -22,7 +22,7 @@
 
         <!-- Konten Utama -->
         <div id="main-content" class="relative w-full h-full overflow-y-auto bg-gray-50 lg:ml-64 dark:bg-gray-900">
-            <main class="container mx-auto p-4">
+            <main class="container mx-auto p-6">
                 @yield('content')
             </main>
         <div>

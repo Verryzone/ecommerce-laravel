@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.-icon-rotate-90 {
+      transform: rotate(45deg);
+      transition: transform 0.2s ease-in-out; /* Animasi rotasi */
+  }
