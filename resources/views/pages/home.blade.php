@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Halaman Utama')
+@section('title', 'Dashboard')
 
 @section('content')
     <h1 class="text-3xl font-bold">Selamat Datang di Laravel dengan Flowbite!</h1>

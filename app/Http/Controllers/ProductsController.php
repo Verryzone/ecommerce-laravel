@@ -24,4 +24,12 @@ class ProductsController extends Controller
 
        return redirect()->route('products.list');
     }
+
+    public function delete(Request $request) {
+      $produk = Products::find($request->id);
+      if($produk) {
+         $produk->delete();
+      }
+      return redirect()->route('products.list');
+    }
 }

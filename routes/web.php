@@ -37,6 +37,7 @@ Route::middleware('level:admin')->group(function () {
     Route::prefix('products')->name('products.')->group(function () {
         Route::get('/', [ProductsController::class, 'list'])->name('list');
         Route::post('/add', [ProductsController::class, 'add'])->name('add');
+        Route::delete('/delete', [ProductsController::class, 'delete'])->name('delete');
     });
 
 

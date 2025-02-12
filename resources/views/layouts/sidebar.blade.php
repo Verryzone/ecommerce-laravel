@@ -84,10 +84,10 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                         </button>
-                        <ul id="dropdown-masterdata" class="space-y-2 py-2 hidden">
+                        <ul id="dropdown-masterdata" class="space-y-2 py-2 {{ Route::is('products.list') ? '' : 'hidden' }}">
                             <li>
                                 <a href="/products"
-                                    class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700 bg-gray-100 dark:bg-gray-700">Products</a>
+                                    class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700  {{ Route::is('products.list') ? 'bg-white' : 'bg-gray-100' }} dark:bg-gray-700">Products</a>
                             </li>
                             <li>
                                 <a href="/users"
