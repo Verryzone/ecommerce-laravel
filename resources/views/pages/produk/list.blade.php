@@ -76,22 +76,16 @@
                                         <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
                                             Product Name
                                         </th>
-                                        {{-- <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
-                                            Technology
-                                        </th> --}}
                                         <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
                                             Description
                                         </th>
-                                        {{-- <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
-                                            ID
-                                        </th> --}}
                                         <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
                                             Price
                                         </th>
                                         <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
                                             Stok
                                         </th>
-                                        <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                                        <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400 w-10">
                                             Actions
                                         </th>
                                     </tr>
@@ -118,8 +112,8 @@
                                                 </div>
                                             </td>
                                             <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $product->name }}</td> 
-                                            <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $product->description }}</td> 
-                                            <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $product->price }}</td> 
+                                            <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white w-2">{{ $product->description }}</td> 
+                                            <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">Rp.{{ Number::format($product->price, 1000, 1000, 'id') }}</td> 
                                             <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $product->stok }}</td> 
 
                                             <td class="p-4 space-x-2 whitespace-nowrap">
@@ -238,7 +232,8 @@
 
 
             <!-- Add Product Drawer -->
-            <div id="drawer-create-product-default" class="fixed top-0 right-0 z-40 w-full h-screen max-w-xs p-4 overflow-y-auto transition-transform translate-x-full bg-white dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-label" aria-hidden="true">
+            @include('pages.produk.add')
+            {{-- <div id="drawer-create-product-default" class="fixed top-0 right-0 z-40 w-full h-screen max-w-xs p-4 overflow-y-auto transition-transform translate-x-full bg-white dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-label" aria-hidden="true">
                 <h5 id="drawer-label" class="inline-flex items-center mb-6 text-sm font-semibold text-gray-500 uppercase dark:text-gray-400">New Product</h5>
                 <button type="button" data-drawer-dismiss="drawer-create-product-default" aria-controls="drawer-create-product-default" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
                     <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
@@ -291,6 +286,22 @@
                             </button>
                         </div>
                 </form>
-            </div>
+            </div> --}}
       </div>
+
+      <script>
+            $(document).ready(function () {
+                $('#createProductButton').click(function () {
+                    $("#drawer-create-product-default").removeClass('translate-x-full').addClass('translate-x-0')
+                })
+                
+                $('#drawer-cancel').click(function () {
+                    $("#drawer-create-product-default").removeClass('translate-x-0').addClass('translate-x-full')
+                })
+
+                $('.drawer-close').click(function () {
+                    $("#drawer-create-product-default").removeClass('translate-x-0').addClass('translate-x-full')
+                })
+            });
+      </script>
 @endsection

@@ -39,13 +39,9 @@ class AuthController extends Controller
             'password' => 'required|string',
         ]);
 
-        if($request -> remember == 'on') {
-            $remember = true;
-        } else {
-            $remember = false;
-        }
+        $remember = $request->has('remember');
 
-        if(Auth::attempt($credential, $request -> remember)) {
+        if(Auth::attempt($credential, $remember)) {
             $request -> session()->regenerate();
 
             return redirect('/dashboard');

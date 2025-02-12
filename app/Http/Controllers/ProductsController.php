@@ -11,8 +11,17 @@ class ProductsController extends Controller
     public function list() {
        $products = DB::table('products')->get();
        
-    //    dump($products);
-
        return view('pages.produk.list', ['products' => $products]);
+    }
+
+    public function add(Request $request) {
+       $add = Products::create([
+         'name' => $request->name,
+         'description' => $request->description,
+         'price' => $request->price,
+         'stok' => $request->stok
+       ]);
+
+       return redirect()->route('products.list');
     }
 }
