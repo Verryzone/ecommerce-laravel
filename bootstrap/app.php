@@ -18,7 +18,11 @@ return Application::configure(basePath: dirname(__DIR__))
             'level' => RoleMiddleware::class,
             'ceklgn' => LoginMiddleware::class,
         ]);
+
+        $middleware->validateCsrfTokens([
+            'api/*'
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        //
+        // 
     })->create();
