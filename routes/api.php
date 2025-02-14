@@ -10,4 +10,5 @@ Route::get('/user', function (Request $request) {
 
 Route::prefix('products')->name('products.')->group(function () {
     Route::get('/{id}', [ProductsController::class, 'show'])->name('show');
+    Route::put('/{id}', [ProductsController::class, 'update'])->name('update');
 });

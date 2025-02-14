@@ -15,7 +15,9 @@
             </svg>
             <span class="sr-only">Close menu</span>
       </button>
-      <form action="#">
+      <form action="#" onsubmit="update_product(event)">
+            @csrf
+            @method('PUT')
             <div class="space-y-4">
                   <div>
                         <label for="name"
@@ -47,9 +49,13 @@
                               placeholder="12" required="">
                   </div>
             </div>
+            <div>
+                  <input type="hidden" name="id" id="product-id-update" value="0">
+            </div>
             <div class="bottom-0 left-0 flex justify-center w-full pb-4 mt-4 space-x-4 sm:absolute sm:px-4 sm:mt-0">
                   <button type="submit"
-                        class="w-full justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                        class="w-full justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 flex items-center">
+                        <img id="loading-gif" src="{{ asset('src/images/loading.gif') }}" width="12px" height="12px" alt="" class="mr-1 hidden">
                         Update
                   </button>
                   <button type="button" data-drawer-dismiss="drawer-create-product-default"

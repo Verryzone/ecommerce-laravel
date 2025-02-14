@@ -20,12 +20,20 @@ class ProductsController extends Controller
         return response()->json($product);
     }
 
-    public function update(string $id) {
+    public function update(Request $request, string $id) {
+
         $product = Products::find($id);
+  
         if(!$product) {
             return response()->json([
                 'message' => 'Product not found',
             ]);
         }
+
+        $product->update($request->all());
+        return response()->json([
+            'message' => 'Product updated successfully',
+            'product' => $product
+        ]);
     }
 }
