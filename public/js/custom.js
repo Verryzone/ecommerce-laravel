@@ -6,7 +6,7 @@ async function edit_product(id) {
       $(`#loading-${id}`).show();
       $(`#editlogo-${id}`).hide();
       try {
-            axios.get(`api/products/${id}`).then(response => {
+            axios.get(`/api/products/${id}`).then(response => {
                   let product = response.data
       
                   $("#product-id-update").val(product.id);
@@ -43,7 +43,7 @@ async function update_product(e) {
       }
 
       try{
-            axios.put(`api/products/${id}`, formData).then(response => {
+            axios.put(`/api/products/${id}`, formData).then(response => {
                   console.log(response.data)
                   $(`#loading-gif`).show();
                   $("#drawer-update-product-default").removeClass('translate-x-0').addClass('translate-x-full')

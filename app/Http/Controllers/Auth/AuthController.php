@@ -29,7 +29,7 @@ class AuthController extends Controller
        ]);
 
         Auth::login($user);
-        return redirect('/dashboard');
+        return redirect()->route('management.dashboard');
 
     }
 
@@ -44,7 +44,7 @@ class AuthController extends Controller
         if(Auth::attempt($credential, $remember)) {
             $request -> session()->regenerate();
 
-            return redirect('/dashboard');
+            return redirect()->route('management.dashboard');
         }
 
         return back()->withErrors([
@@ -56,7 +56,7 @@ class AuthController extends Controller
         Auth::logout();
         $request -> session()->invalidate();
         $request -> session()->regenerateToken();
-        return redirect('/login');
+        return redirect()->route('login');
         
     }
 }

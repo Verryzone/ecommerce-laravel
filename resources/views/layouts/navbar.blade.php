@@ -79,7 +79,7 @@
                         <a href="#"
                             class="flex px-4 py-3 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
                             <div class="flex-shrink-0">
-                                <img class="rounded-full w-11 h-11" src="src/images/users/bonnie-green.png"
+                                <img class="rounded-full w-11 h-11" src="{{ asset('src/images/users/bonnie-green.png') }}"
                                     alt="Jese image">
                                 <div
                                     class="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 border border-white rounded-full bg-primary-700 dark:border-gray-700">
@@ -105,7 +105,7 @@
                         <a href="#"
                             class="flex px-4 py-3 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
                             <div class="flex-shrink-0">
-                                <img class="rounded-full w-11 h-11" src="src/images/users/jese-leos.png" alt="Jese image">
+                                <img class="rounded-full w-11 h-11" src="{{ asset('src/images/users/jese-leos.png') }}" alt="Jese image">
                                 <div
                                     class="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-gray-900 border border-white rounded-full dark:border-gray-700">
                                     <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20"
@@ -128,7 +128,7 @@
                         <a href="#"
                             class="flex px-4 py-3 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
                             <div class="flex-shrink-0">
-                                <img class="rounded-full w-11 h-11" src="src/images/users/joseph-mcfall.png"
+                                <img class="rounded-full w-11 h-11" src="{{ asset('src/images/users/joseph-mcfall.png') }}"
                                     alt="Joseph image">
                                 <div
                                     class="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-red-600 border border-white rounded-full dark:border-gray-700">
@@ -152,7 +152,7 @@
                         <a href="#"
                             class="flex px-4 py-3 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
                             <div class="flex-shrink-0">
-                                <img class="rounded-full w-11 h-11" src="src/images/users/leslie-livingston.png"
+                                <img class="rounded-full w-11 h-11" src="{{ asset('src/images/users/leslie-livingston.png') }}"
                                     alt="Leslie image">
                                 <div
                                     class="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-green-400 border border-white rounded-full dark:border-gray-700">
@@ -176,7 +176,7 @@
                         </a>
                         <a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-600">
                             <div class="flex-shrink-0">
-                                <img class="rounded-full w-11 h-11" src="src/images/users/robert-brown.png"
+                                <img class="rounded-full w-11 h-11" src="{{ asset('src/images/users/robert-brown.png') }}"
                                     alt="Robert image">
                                 <div
                                     class="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-purple-500 border border-white rounded-full dark:border-gray-700">

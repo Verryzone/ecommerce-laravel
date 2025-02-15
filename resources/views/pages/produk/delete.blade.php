@@ -22,7 +22,7 @@
       </svg>
       <h3 class="mb-6 text-lg text-gray-500 dark:text-gray-400">Are you sure you want to delete this product?</h3>
       <div class="w-full bg-fuchsia-500 flex">
-            <form action="{{ route('products.delete') }}" method="POST">
+            <form action="{{ route('management.products.delete') }}" method="POST">
                   @csrf
                   @method('DELETE')
                   <input type="hidden" name="id" id="product-id-delete" value="0">

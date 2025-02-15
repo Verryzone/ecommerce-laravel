@@ -15,7 +15,7 @@
         </svg>
         <span class="sr-only">Close menu</span>
     </button>
-    <form action="{{ route('products.add') }}" method="POST">
+    <form action="{{ route('management.products.add') }}" method="POST">
         @csrf
         <div class="space-y-4">
             <div>

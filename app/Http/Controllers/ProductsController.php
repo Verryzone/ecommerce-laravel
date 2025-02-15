@@ -22,7 +22,7 @@ class ProductsController extends Controller
          'stok' => $request->stok
        ]);
 
-       return redirect()->route('products.list');
+       return redirect()->route('management.products.list');
     }
 
     public function delete(Request $request) {
@@ -30,7 +30,7 @@ class ProductsController extends Controller
       if($produk) {
          $produk->delete();
       }
-      return redirect()->route('products.list');
+      return redirect()->route('management.products.list');
     }
 
     
