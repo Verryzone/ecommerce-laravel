@@ -79,7 +79,7 @@
                         <a href="#"
                             class="flex px-4 py-3 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
                             <div class="flex-shrink-0">
-                                <img class="rounded-full w-11 h-11" src="/images/users/bonnie-green.png"
+                                <img class="rounded-full w-11 h-11" src="src/images/users/bonnie-green.png"
                                     alt="Jese image">
                                 <div
                                     class="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 border border-white rounded-full bg-primary-700 dark:border-gray-700">
@@ -105,7 +105,7 @@
                         <a href="#"
                             class="flex px-4 py-3 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
                             <div class="flex-shrink-0">
-                                <img class="rounded-full w-11 h-11" src="/images/users/jese-leos.png" alt="Jese image">
+                                <img class="rounded-full w-11 h-11" src="src/images/users/jese-leos.png" alt="Jese image">
                                 <div
                                     class="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-gray-900 border border-white rounded-full dark:border-gray-700">
                                     <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20"
@@ -128,7 +128,7 @@
                         <a href="#"
                             class="flex px-4 py-3 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
                             <div class="flex-shrink-0">
-                                <img class="rounded-full w-11 h-11" src="/images/users/joseph-mcfall.png"
+                                <img class="rounded-full w-11 h-11" src="src/images/users/joseph-mcfall.png"
                                     alt="Joseph image">
                                 <div
                                     class="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-red-600 border border-white rounded-full dark:border-gray-700">
@@ -152,7 +152,7 @@
                         <a href="#"
                             class="flex px-4 py-3 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
                             <div class="flex-shrink-0">
-                                <img class="rounded-full w-11 h-11" src="/images/users/leslie-livingston.png"
+                                <img class="rounded-full w-11 h-11" src="src/images/users/leslie-livingston.png"
                                     alt="Leslie image">
                                 <div
                                     class="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-green-400 border border-white rounded-full dark:border-gray-700">
@@ -176,7 +176,7 @@
                         </a>
                         <a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-600">
                             <div class="flex-shrink-0">
-                                <img class="rounded-full w-11 h-11" src="/images/users/robert-brown.png"
+                                <img class="rounded-full w-11 h-11" src="src/images/users/robert-brown.png"
                                     alt="Robert image">
                                 <div
                                     class="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-purple-500 border border-white rounded-full dark:border-gray-700">
@@ -345,9 +345,9 @@
                     <div class="tooltip-arrow" data-popper-arrow></div>
                 </div>
                 <!-- Profile -->
-                <div class="flex items-center ml-3">
+                <div class="flex items-center ml-3 relative">
                     <div>
-                        <button type="button"
+                        <button id="profilButton" type="button"
                             class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                             id="user-menu-button-2" aria-expanded="false" data-dropdown-toggle="dropdown-2">
                             <span class="sr-only">Open user menu</span>
@@ -356,14 +356,14 @@
                         </button>
                     </div>
                     <!-- Dropdown menu -->
-                    <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
+                    <div class="z-50 absolute hidden top-4 right-0 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
                         id="dropdown-2">
                         <div class="px-4 py-3" role="none">
                             <p class="text-sm text-gray-900 dark:text-white" role="none">
-                                Neil Sims
+                                {{ auth()->user()->name }}
                             </p>
                             <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                                neil.sims@flowbite.com
+                                {{ auth()->user()->email }}
                             </p>
                         </div>
                         <ul class="py-1" role="none">
@@ -382,11 +382,15 @@
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                     role="menuitem">Earnings</a>
                             </li>
-                            <li>
-                                <a href="#"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                    role="menuitem">Sign out</a>
-                            </li>
+                            <form action="{{ route('auth.logout') }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <li>
+                                    <button type="submit" href=""
+                                        class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                        role="menuitem">Sign out</button>
+                                </li>
+                            </form>
                         </ul>
                     </div>
                 </div>
@@ -394,3 +398,11 @@
         </div>
     </div>
 </nav>
+<script>
+    $(document).ready(function () {
+        $('#profilButton').click(function (e) { 
+            $('#dropdown-2').toggleClass('hidden');
+        });
+        
+    });
+</script>

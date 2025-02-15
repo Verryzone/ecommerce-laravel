@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\GuestMiddleware;
 use App\Http\Middleware\LoginMiddleware;
 use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Foundation\Application;
@@ -17,6 +18,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'level' => RoleMiddleware::class,
             'ceklgn' => LoginMiddleware::class,
+            'guest' => GuestMiddleware::class,
         ]);
 
         $middleware->validateCsrfTokens([
