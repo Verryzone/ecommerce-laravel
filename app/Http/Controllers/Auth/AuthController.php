@@ -33,24 +33,43 @@ class AuthController extends Controller
 
     }
 
+    // public function login(Request $request) {
+    //     $credential = $request -> validate([
+    //         'email' => 'required|email|string',
+    //         'password' => 'required|string',
+    //     ]);
+
+    //     $remember = $request->has('remember');
+
+    //     if(Auth::attempt($credential, $remember)) {
+    //         $request -> session()->regenerate();
+
+    //         return redirect()->route('management.dashboard');
+    //     }
+
+    //     return back()->withErrors([
+    //         'email' => 'email atau password mungkin salah.'
+    //     ]);
+    // }
+
     public function login(Request $request) {
-        $credential = $request -> validate([
+        $request->validate([
             'email' => 'required|email|string',
             'password' => 'required|string',
         ]);
-
-        $remember = $request->has('remember');
-
-        if(Auth::attempt($credential, $remember)) {
-            $request -> session()->regenerate();
-
+    
+        $credentials = $request->only('email', 'password'); 
+        $remember = $request->boolean('remember'); 
+    
+        if (Auth::attempt($credentials, $remember)) {
             return redirect()->route('management.dashboard');
         }
-
+    
         return back()->withErrors([
-            'email' => 'email atau password mungkin salah.'
-        ]);
+            'email' => 'Email atau password mungkin salah.'
+        ])->withInput($request->except('password'));
     }
+    
     
     public function logout(Request $request) {
         Auth::logout();
