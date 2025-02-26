@@ -11,16 +11,18 @@ class ProductsController extends Controller
     public function list() {
        $products = DB::table('products')->get();
        
-       return view('pages.produk.list', ['products' => $products]);
+       return view('management.pages.produk.list', ['products' => $products]);
     }
 
     public function add(Request $request) {
-       $add = Products::create([
-         'name' => $request->name,
-         'description' => $request->description,
-         'price' => $request->price,
-         'stok' => $request->stok
-       ]);
+      $validated = $request->validate([
+         'name' => 'required|string|max:255',
+         'description' => 'required|string',
+         'price' => 'required|numeric',
+         'stok' => 'required|numeric'
+      ]);
+
+       $add = Products::create($validated);
 
        return redirect()->route('management.products.list');
     }

@@ -5,8 +5,8 @@ use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
 // Route::middleware('ceklgn')->group(function () {
-    Route::get('/public', function () {
-        return view('public.home');
+    Route::get('/', function () {
+        return view('public.pages.dashboard.app');
     });
 
 // });
@@ -36,7 +36,7 @@ Route::middleware('level:admin')->group(function () {
     
     Route::prefix('management')->name('management.')->group(function () {
         Route::get('/dashboard', function () {
-            return view('pages.home');
+            return view('management.pages.home');
         })->name('dashboard');
         
         Route::prefix('products')->name('products.')->group(function () {

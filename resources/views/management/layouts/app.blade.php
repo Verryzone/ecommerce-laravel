@@ -18,9 +18,9 @@
     <script src="{{ asset('js/index.js') }}" defer></script>
 </head>
 <body class="bg-gray-100">
-    @include('layouts.navbar')
+    @include('management.layouts.navbar')
     <div class="flex pt-16 overflow-hidden bg-gray-50 dark:bg-gray-900">
-        @include('layouts.sidebar')
+        @include('management.layouts.sidebar')
 
         <!-- Konten Utama -->
         <div id="main-content" class="relative w-full h-full overflow-y-auto bg-gray-50 lg:ml-64 dark:bg-gray-900">
@@ -33,5 +33,6 @@
 
     <!-- Tambahkan JS -->
     <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="{{ asset('api/axios.js') }}"></script>
 </body>
 </html>
