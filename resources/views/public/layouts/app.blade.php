@@ -16,15 +16,15 @@
 <body class="bg-gray-100">
 
     <!-- Navbar -->
-    @include('management.layouts.navbar')
+    @include('public.layouts.navbar')
 
     <div class="flex pt-16 dark:bg-gray-900 justify-center relative w-full max-w-screen-lg">
         <!-- Sidebar -->
-        {{-- @include('management.layouts.sidebar') --}}
+        {{-- @include('public.layouts.sidebar') --}}
 
         <!-- Konten Utama -->
         <div id="main-content" class="relative w-full max-w-screen-lg mx-auto h-full overflow-y-auto dark:bg-gray-900">
-            <main class="container bg-gray-50 mx-auto p-6">
+            <main class="container bg-gray-50 mx-auto p-6 shadow-lg">
                 @yield('content')
             </main>
         </div>
