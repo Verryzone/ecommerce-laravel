@@ -41,7 +41,7 @@
             </div>
             <div class="flex items-center">
                 <div class="hidden mr-3 -mb-1 sm:block">
-                    <a href="{{ route('login') }}" class="cursor-pointer !bg-primary-600 p-2 rounded-lg text-white font-bold hover:bg-primary-700">SignIn</a>
+                    <a href="{{ route('login') }}" class="cursor-pointer !bg-primary-600 p-2 rounded-lg text-white font-bold hover:bg-primary-700">Sign In</a>
                 </div>
                 <!-- Search mobile -->
                 <button id="toggleSidebarMobileSearch" type="button"
