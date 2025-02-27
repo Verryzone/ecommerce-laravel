@@ -15,9 +15,17 @@
         </svg>
         <span class="sr-only">Close menu</span>
     </button>
-    <form action="{{ route('management.products.add') }}" method="POST">
-        @csrf
+    <form action="{{ route('management.products.add') }}" method="POST" enctype="multipart/form-data">
+        @csrf  
         <div class="space-y-4">
+            <div>
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Upload file</label>
+                <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="image" name="image" id="image" type="file">
+                <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="image">Product picture</div>
+                @error('image')
+                    <small class="text-red-500">{{ $message }}</small>
+                @enderror
+            </div>
             <div>
                 <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
                 <input type="text" name="name" id="name"

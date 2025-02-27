@@ -16,13 +16,25 @@ class ProductsController extends Controller
 
     public function add(Request $request) {
       $validated = $request->validate([
+         'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
          'name' => 'required|string|max:255',
          'description' => 'required|string',
          'price' => 'required|numeric',
          'stok' => 'required|numeric'
       ]);
 
-       $add = Products::create($validated);
+      $storeImage = $request->file('image')->store('products/images', 'public');
+      $imageName = basename($storeImage);
+
+      $data = [
+         'name' => $request->name,
+         'description' => $request->description,
+         'price' => $request->price,
+         'stok' => $request->stok,
+         'image' => $imageName
+      ];
+
+       $add = Products::create($data);
 
        return redirect()->route('management.products.list');
     }
@@ -33,6 +45,12 @@ class ProductsController extends Controller
          $produk->delete();
       }
       return redirect()->route('management.products.list');
+    }
+
+    function loadDashboard() {
+      $products = DB::table('products')->get();
+
+       return view('public.pages.dashboard.app', ['products' => $products]);
     }
 
     

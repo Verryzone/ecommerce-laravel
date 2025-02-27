@@ -5,9 +5,7 @@ use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
 // Route::middleware('ceklgn')->group(function () {
-    Route::get('/', function () {
-        return view('public.pages.dashboard.app');
-    });
+    Route::get('/', [ProductsController::class, 'loadDashboard']);
 
 // });
 

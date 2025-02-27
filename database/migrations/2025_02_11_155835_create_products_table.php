@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id('id')->autoIncrement();
             $table->string('name');
+            $table->string('image');
             $table->string('description');
             $table->integer('price');
-            $table->integer('stok');
+            $table->integer('stok')->default(0);
+            $table->integer('sold')->default(0);
             $table->timestamps();
         });
     }

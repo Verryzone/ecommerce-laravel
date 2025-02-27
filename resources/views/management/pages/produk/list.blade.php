@@ -75,6 +75,9 @@
                                             </div>
                                         </th>
                                         <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                                            Picture
+                                        </th>
+                                        <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
                                             Product Name
                                         </th>
                                         <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
@@ -104,7 +107,6 @@
                                         <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white"></td> --}}
                                     @foreach ($products as $product )
                                         <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-
                                             <td class="w-4 p-4">
                                                 <div class="flex items-center">
                                                     <input id="checkbox-" aria-describedby="checkbox-1" type="checkbox"
@@ -112,6 +114,13 @@
                                                     <label for="checkbox-" class="sr-only">checkbox</label>
                                                 </div>
                                             </td>
+                                            <td class="">
+                                                <div class="p-1">
+                                                    <div class="w-16 h-16 overflow-hidden rounded-lg shadow-md bg-gray-100 p-1 flex items-center justify-center">
+                                                        <img src="{{ asset('storage/products/images/'.$product->image) }}" class="w-full h-full object-cover rounded-md" alt="">
+                                                    </div>
+                                                </div>
+                                            </td>                                                                                           
                                             <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $product->name }}</td> 
                                             <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white w-2">{{ $product->description }}</td> 
                                             <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">Rp.{{ Number::format($product->price, 1000, 1000, 'id') }}</td> 
